@@ -1,27 +1,25 @@
 <template>
   <div class="accordion-display">
-    <div>
+    <div
+      v-for="(item, index) in data"
+      :key="index"
+      @click="onChangeActiveKey(index)"
+    >
       <div
-        v-for="(item, index) in data"
-        :key="index"
-        @click="onChangeActiveKey(index)"
+        :class="[
+          'accordion-display__panel',
+          { 'accordion-display__panel--active': activeKey === index },
+        ]"
       >
-        <div
-          :class="[
-            'accordion-display__panel',
-            { 'accordion-display__panel--active': activeKey === index },
-          ]"
-        >
-          {{ item.title }}
-        </div>
-
-        <div
-          v-if="activeKey !== null"
-          class="accordion-display__content"
-          v-html="item.content"
-          v-show="activeKey === index"
-        />
+        {{ item.title }}
       </div>
+
+      <div
+        v-if="activeKey !== null"
+        class="accordion-display__content"
+        v-html="item.content"
+        v-show="activeKey === index"
+      />
     </div>
   </div>
 </template>

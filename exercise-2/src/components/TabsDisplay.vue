@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="tabs-display__content">
+    <div v-if="activeKey !== null" class="tabs-display__content">
       <h1 class="tabs-display__content-title">
         {{ data[activeKey].title }}
       </h1>
@@ -91,6 +91,7 @@ export default {
   color: #2e7d32;
   font-size: 2rem;
   line-height: 100%;
+  margin-bottom: 1.5rem;
 }
 
 .tabs-display__content-html {
@@ -102,5 +103,9 @@ export default {
   .tabs-display__content-html {
     font-size: 1rem;
   }
+}
+
+.tabs-display__content-html >>> p {
+  margin-bottom: 0.75rem;
 }
 </style>

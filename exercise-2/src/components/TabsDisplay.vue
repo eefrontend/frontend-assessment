@@ -1,7 +1,7 @@
 <template>
   <div class="tabs-display">
     <div>
-      <div
+      <button
         v-for="(item, index) in data"
         :class="[
           'tabs-display__tab',
@@ -13,7 +13,7 @@
         {{ item.title }}
 
         <div class="tabs-display__tab-indicator" v-show="activeKey === index" />
-      </div>
+      </button>
     </div>
 
     <div v-if="activeKey !== null" class="tabs-display__content">
@@ -47,6 +47,8 @@ export default {
   border: 1px solid $color-green-1;
 
   &__tab {
+    @include button-focus;
+
     min-width: 12rem;
     height: 4rem;
     display: flex;

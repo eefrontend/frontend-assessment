@@ -1,7 +1,7 @@
 <template>
   <div class="accordion-display">
     <div v-for="(item, index) in data" :key="index">
-      <div
+      <button
         :class="[
           'accordion-display__panel',
           { 'accordion-display__panel--active': activeKey === index },
@@ -14,7 +14,7 @@
           class="accordion-display__panel-indicator"
           v-show="activeKey === index"
         />
-      </div>
+      </button>
 
       <transition
         name="accordion"
@@ -55,6 +55,9 @@ export default {
 <style lang="scss" scoped>
 .accordion-display {
   &__panel {
+    @include button-focus;
+
+    width: 100%;
     height: 4rem;
     display: flex;
     justify-content: center;

@@ -46,15 +46,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .responsive-data-display {
-  box-shadow: 0 0 4px 0 #c2c2c2;
+  box-shadow: $box-shadow-1;
 }
 
 .accordion-display {
   display: none;
 }
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: $media-phone) {
   .accordion-display {
     display: block;
   }

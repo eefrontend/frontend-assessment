@@ -52,48 +52,50 @@ export default {
 };
 </script>
 
-<style scoped>
-.accordion-display__panel {
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1.5rem;
-  font-size: 1rem;
-  background-color: #c8e6c9;
-  cursor: pointer;
-  position: relative;
-  transition-property: background-color;
-  transition-duration: 150ms;
-  position: relative;
-}
+<style lang="scss" scoped>
+.accordion-display {
+  &__panel {
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+    font-size: $font-size-regular;
+    background-color: $color-green-1;
+    cursor: pointer;
+    position: relative;
+    transition-property: background-color;
+    transition-duration: 150ms;
+    position: relative;
+  }
 
-.accordion-display__panel:hover {
-  background-color: #a5d6a7;
-}
+  &__panel:hover {
+    background-color: $color-green-2;
+  }
 
-.accordion-display__panel--active {
-  background-color: #4caf50;
-  color: #ffffff;
-}
+  &__panel--active {
+    background-color: $color-green-3;
+    color: $color-white;
+  }
 
-.accordion-display__panel--active:hover {
-  background-color: #4caf50;
-}
+  &__panel--active:hover {
+    background-color: $color-green-3;
+  }
 
-.accordion-display__panel-indicator {
-  background-color: #2e7d32;
-  height: 0.25rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+  &__panel-indicator {
+    background-color: $color-green-4;
+    height: 0.25rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 
-.accordion-display__content {
-  background-color: #f5f5f5;
-  padding: 1.5rem;
-  line-height: 200%;
+  &__content {
+    background-color: $color-grey-1;
+    padding: 1.5rem;
+    line-height: 200%;
+  }
 }
 
 .accordion-enter-active,

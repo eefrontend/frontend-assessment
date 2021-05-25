@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 html,
@@ -29,21 +29,22 @@ body {
 }
 
 html {
-  font-size: 16px;
+  font-size: $font-size-base;
 }
-@media (min-width: 1800px) {
+@media (min-width: $media-desktop-l) {
   html {
-    font-size: 19px;
+    font-size: $font-size-base-desktop-l;
   }
 }
-@media (min-width: 2000px) {
+@media (min-width: $media-desktop-xl) {
   html {
-    font-size: 21px;
+    font-size: $font-size-base-desktop-xl;
   }
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: $font-primary;
+  color: $color-black;
 }
 
 * {

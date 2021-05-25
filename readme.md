@@ -10,7 +10,7 @@ Run Live Server in `exercise-1` directory or open `exercise-1/index.html` file.
 
 ## Exercise 2
 
-Tools Used: Vue (Vue CLI)
+Tools Used: Vue (Vue CLI), Sass (SCSS)
 
 ### Run Locally
 

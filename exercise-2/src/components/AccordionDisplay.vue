@@ -7,6 +7,9 @@
           { 'accordion-display__panel--active': activeKey === index },
         ]"
         @click="onChangeActiveKey(index)"
+        :id="`accordion-header-${index}`"
+        :aria-expanded="activeKey === index ? 'true' : 'false'"
+        :aria-controls="`accordion-panel-${index}`"
       >
         {{ item.title }}
 
@@ -26,6 +29,8 @@
         <div
           class="accordion-display__content-wrapper"
           v-show="activeKey !== null && activeKey === index"
+          :id="`accordion-panel-${index}`"
+          :aria-labelledby="`accordion-header-${index}`"
         >
           <div class="accordion-display__content" v-html="item.content" />
         </div>

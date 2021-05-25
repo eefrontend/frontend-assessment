@@ -1,6 +1,6 @@
 <template>
   <div class="tabs-display">
-    <div>
+    <div role="tablist">
       <button
         v-for="(item, index) in data"
         :class="[
@@ -9,6 +9,10 @@
         ]"
         :key="index"
         @click="onChangeActiveKey(index)"
+        role="tab"
+        :id="`tab-${index}`"
+        :aria-selected="activeKey === index ? 'true' : 'false'"
+        :aria-controls="`panel-${index}`"
       >
         {{ item.title }}
 
@@ -16,7 +20,13 @@
       </button>
     </div>
 
-    <div v-if="activeKey !== null" class="tabs-display__content">
+    <div
+      v-if="activeKey !== null"
+      class="tabs-display__content"
+      role="tabpanel"
+      :id="`panel-${index}`"
+      :aria-labelledby="`tab-${index}`"
+    >
       <h1 class="tabs-display__content-title">
         {{ data[activeKey].title }}
       </h1>

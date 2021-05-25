@@ -50,7 +50,8 @@ body {
   box-sizing: border-box;
 }
 
-h1 {
+h1,
+p {
   margin: 0;
 }
 

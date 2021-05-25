@@ -24,8 +24,8 @@
       v-if="activeKey !== null"
       class="tabs-display__content"
       role="tabpanel"
-      :id="`panel-${index}`"
-      :aria-labelledby="`tab-${index}`"
+      :id="`panel-${activeKey}`"
+      :aria-labelledby="`tab-${activeKey}`"
     >
       <h1 class="tabs-display__content-title">
         {{ data[activeKey].title }}

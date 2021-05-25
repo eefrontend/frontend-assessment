@@ -27,9 +27,9 @@
       :id="`panel-${activeKey}`"
       :aria-labelledby="`tab-${activeKey}`"
     >
-      <h1 class="tabs-display__content-title">
+      <h2 class="tabs-display__content-title">
         {{ data[activeKey].title }}
-      </h1>
+      </h2>
 
       <div
         class="tabs-display__content-html"

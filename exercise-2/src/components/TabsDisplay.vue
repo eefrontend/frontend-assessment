@@ -52,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 .tabs-display {
   display: flex;
-  height: 32rem;
+  min-height: 32rem;
   background-color: $color-green-1;
   border: 1px solid $color-green-1;
 

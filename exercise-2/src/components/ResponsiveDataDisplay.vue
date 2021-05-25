@@ -4,14 +4,14 @@
       class="tabs-display"
       :data="data"
       :activeKey="activeKey"
-      :onChangeActiveKey="handleChangeActiveKey"
+      :onChangeActiveKey="handleChangeActiveTabKey"
     />
 
     <accordion-display
       class="accordion-display"
       :data="data"
       :activeKey="activeKey"
-      :onChangeActiveKey="handleChangeActiveKey"
+      :onChangeActiveKey="handleChangeActivePanelKey"
     />
   </div>
 </template>
@@ -31,12 +31,15 @@ export default {
     };
   },
   methods: {
-    handleChangeActiveKey(key) {
+    handleChangeActivePanelKey(key) {
       if (key === this.activeKey) {
         this.activeKey = null;
         return;
       }
 
+      this.activeKey = key;
+    },
+    handleChangeActiveTabKey(key) {
       this.activeKey = key;
     },
   },

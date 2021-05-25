@@ -12,14 +12,27 @@
         ]"
       >
         {{ item.title }}
+
+        <div
+          class="accordion-display__panel-indicator"
+          v-show="activeKey === index"
+        />
       </div>
 
-      <div
-        v-if="activeKey !== null"
-        class="accordion-display__content"
-        v-html="item.content"
-        v-show="activeKey === index"
-      />
+      <transition
+        name="accordion"
+        @enter="transitionStart"
+        @after-enter="transitionEnd"
+        @before-leave="transitionStart"
+        @after-leave="transitionEnd"
+      >
+        <div
+          class="accordion-display__content-wrapper"
+          v-show="activeKey !== null && activeKey === index"
+        >
+          <div class="accordion-display__content" v-html="item.content" />
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -30,6 +43,14 @@ export default {
     data: Array,
     activeKey: Number,
     onChangeActiveKey: Function,
+  },
+  methods: {
+    transitionStart(el) {
+      el.style.height = el.scrollHeight + "px";
+    },
+    transitionEnd(el) {
+      el.style.height = "";
+    },
   },
 };
 </script>
@@ -47,6 +68,7 @@ export default {
   position: relative;
   transition-property: background-color;
   transition-duration: 150ms;
+  position: relative;
 }
 
 .accordion-display__panel:hover {
@@ -62,9 +84,31 @@ export default {
   background-color: #4caf50;
 }
 
+.accordion-display__panel-indicator {
+  background-color: #2e7d32;
+  height: 0.25rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .accordion-display__content {
   background-color: #f5f5f5;
   padding: 1.5rem;
   line-height: 200%;
+}
+
+.accordion-enter-active,
+.accordion-leave-active {
+  will-change: height, opacity;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion-enter,
+.accordion-leave-to {
+  height: 0 !important;
+  opacity: 0;
 }
 </style>

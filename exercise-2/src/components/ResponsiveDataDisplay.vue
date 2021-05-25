@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="responsive-data-display">
     <tabs-display
       class="tabs-display"
       :data="data"
@@ -44,6 +44,10 @@ export default {
 </script>
 
 <style scoped>
+.responsive-data-display {
+  box-shadow: 0 0 4px 0 #c2c2c2;
+}
+
 .accordion-display {
   display: none;
 }
